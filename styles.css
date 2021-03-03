@@ -107,3 +107,7 @@ body{
 .trash-icon path{
   fill: #555;
 }
+
+#template{
+  display: none;
+}

@@ -8,31 +8,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lato:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
-    <div class="container">
+    <div class="container" id="app">
       <header>
         <h1 class="title">Another ToDo App</h1>
       </header>
-      <form class="form" action="#">
-        <input type="text" name="todo" id="todo" class="input" placeholder="Add Activity" autocomplete="off">
+      <form class="form" action="#" v-on:submit="addTodo($event)">
+        <input type="text" name="todo" id="todo" class="input" placeholder="Add Activity" autocomplete="off" v-model="todo">
       </form>
       <section>
         <ul class="todos">
-          <li class="todo">
-            <input type="checkbox" id="item-1" class="checkbox">
-            <label for="item-1" class="label">Da fare</label>
-            <button class="trash">
-              <svg class="trash-icon" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path d="M18,22H6V8H4v13.7C4,22.8,4.9,24,6,24h12c1.1,0,2-1.2,2-2.3V8h-2V22z M15,4V2H9v2H2v2h20V4H15z M9,10v10h2V10H9  z M13,10v10h2V10H13z"/>
-              </svg>
-            </button>
-          </li>
-          <li class="todo">
-            <input type="checkbox" id="item-2" class="checkbox" checked>
-            <label for="item-2" class="label">Fatto</label>
-            <button class="trash">
+          <li class="todo" v-for="todo in todos">
+            <input type="checkbox" v-bind:id="'item' + todo.id" class="checkbox" v-model="todo.done">
+            <label v-bind:for="'item' + todo.id" class="label">{{todo.value}}</label>
+            <button class="trash" @click="removeItem(todo.id)">
               <svg class="trash-icon" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <path d="M18,22H6V8H4v13.7C4,22.8,4.9,24,6,24h12c1.1,0,2-1.2,2-2.3V8h-2V22z M15,4V2H9v2H2v2h20V4H15z M9,10v10h2V10H9  z M13,10v10h2V10H13z"/>
               </svg>

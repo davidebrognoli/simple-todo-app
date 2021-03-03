@@ -97,6 +97,10 @@ body{
   cursor: pointer;
 }
 
+.trash:focus{
+  outline: none;
+}
+
 .trash-icon{
   width: 24px;
 }

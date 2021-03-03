@@ -51,7 +51,6 @@ body{
   list-style: none;
   border-bottom: 1px dotted #ccc;
   padding: 10px 20px;
-  text-transform: capitalize;
   display: flex;
   align-items: center;
   justify-content: space-between

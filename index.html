@@ -22,8 +22,8 @@
       <section>
         <ul class="todos">
           <li class="todo" v-for="todo in todos">
-            <input type="checkbox" v-bind:id="'item' + todo.id" class="checkbox" v-model="todo.done">
-            <label v-bind:for="'item' + todo.id" class="label">{{todo.value}}</label>
+            <input type="checkbox" v-bind:id="itemId(todo.id)" class="checkbox" v-model="todo.done">
+            <label v-bind:for="itemId(todo.id)" class="label">{{todo.value}}</label>
             <button class="trash" @click="removeItem(todo.id)">
               <svg class="trash-icon" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <path d="M18,22H6V8H4v13.7C4,22.8,4.9,24,6,24h12c1.1,0,2-1.2,2-2.3V8h-2V22z M15,4V2H9v2H2v2h20V4H15z M9,10v10h2V10H9  z M13,10v10h2V10H13z"/>
@@ -31,6 +31,9 @@
             </button>
           </li>
         </ul>
+      </section>
+      <section class="todos-counter">
+        {{ undoneTodos }}
       </section>
     </div>
   </body>

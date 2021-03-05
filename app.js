@@ -21,6 +21,15 @@ const app = Vue.createApp({
     }, 
     removeItem(id) {
       this.todos = this.todos.filter(t => t.id !== id);
+    },
+    itemId: (id) => {
+      return id ? `item-${id}` : '';
+    },
+  },
+  computed: {
+    undoneTodos() {
+      const count = this.todos.filter(t => !t.done).length;
+      return count === 1 ? '1 todo undone' : `${count} todos undone`
     }
   }
 });

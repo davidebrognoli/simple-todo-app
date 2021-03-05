@@ -107,3 +107,9 @@ body{
 .trash-icon path{
   fill: #555;
 }
+
+.todos-counter{
+  font-family: 'Lato', sans-serif;
+  text-align: right;
+  padding: 20px 0;
+}
